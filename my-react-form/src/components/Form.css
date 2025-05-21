@@ -1,0 +1,68 @@
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 8px 10px;
+    margin: 6px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-container p {
+    color: red;
+    margin-top: -12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Added checkbox container styles for Show Password */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px; /* some spacing below */
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.checkbox-container label {
+    cursor: pointer;
+    user-select: none;
+}
