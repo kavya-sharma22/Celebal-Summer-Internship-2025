@@ -1,70 +1,182 @@
-# Getting Started with Create React App
+# ✅ Task 1 – React Form with Validation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This task is part of the **Celebal Summer Internship 2025 – React.js Track**. 
+The goal of this task is to build a fully functional **form in React** with **input validation**, **conditional submission**, 
+and **route-based data display**, without using any third-party libraries for form handling or validation.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Task Objective
 
-### `npm start`
+* Create a user registration form with multiple fields
+* Apply **custom validation logic** for required fields
+* Display **error messages** for invalid or empty inputs
+* Disable the **Submit** button until all fields are valid
+* On successful submission, navigate to a new route and show the submitted data
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧹 Features Implemented
 
-### `npm test`
+✅ Real-time input validation
+✅ Error messages for each invalid field
+✅ Password show/hide toggle
+✅ Phone number with country code format
+✅ Country and city dropdowns
+✅ Submission disabled until all fields are valid
+✅ Data display on a new route after submission using React Router
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🗞️ Form Fields
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Field        | Validation                        |
+| ------------ | --------------------------------- |
+| First Name   | Required                          |
+| Last Name    | Required                          |
+| Username     | Required, unique logic (if added) |
+| E-mail       | Required, valid format            |
+| Password     | Required, minimum length logic    |
+| Phone Number | Required, includes country code   |
+| Country      | Required (dropdown)               |
+| City         | Required (dropdown)               |
+| PAN No.      | Required, alphanumeric check      |
+| Aadhar No.   | Required, numeric + length check  |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
+##  1. Accessing the `my-react-form` Folder
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To work with the React form project, navigate to the `my-react-form` directory inside the repository:
 
-### `npm run eject`
+<img src="screenshot/Screenshot%202025-05-21%20164656.png" alt="Screenshot" width="700" />
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 2. Start your React application:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img src="screenshot/2.png" alt="Screenshot" width="700" />
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## It:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Compiles your React code using webpack and babel.
 
-### Code Splitting
+- Starts a development server (usually on http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Watches for changes in your code and automatically reloads the browser (hot-reloading).
 
-### Analyzing the Bundle Size
+- Lets you interactively test your UI.
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="screenshot/3.png" alt="Screenshot" width="700" />
 
-### Making a Progressive Web App
+### 3. Initial Form Load:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- All input fields are empty.
+- The **Submit** button is disabled.
+- No error messages are shown initially.
 
-### Advanced Configuration
+  
+<img src="screenshot/4.png" alt="Screenshot" width="700" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 4. As User Starts Filling the Form:
 
-### Deployment
+- Real-time validation occurs as the user types.
+- If a field is left empty or filled incorrectly:
+  - An **error message** appears below the respective input in **red**.
+- For the password field:
+  - A toggle button lets the user **show/hide** the password.
+- For the phone number:
+  - Two inputs: one for the **country code** and one for the **number**.
+- When a country is selected:
+  - The **city dropdown** updates with the respective cities.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Once All Fields Are Valid:
 
-### `npm run build` fails to minify
+- The **Submit** button becomes **enabled**.
+- All error messages disappear.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="screenshot/5.png" alt="Screenshot" width="700" />
+
+
+### 5. On Clicking Submit:
+
+- The app navigates to a new route (e.g., `/result`).
+- The submitted form data is displayed in a clean format (either as formatted text or JSON).
+
+ <img src="screenshot/6.png" alt="Screenshot" width="700" />
+
+ 
+### On the Result Page:
+
+- A **"Back to Form"** button allows the user to return and edit the form if needed.
+
+
+
+## 🚀 How to Run
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/celebal-react-internship-2025.git
+```
+
+2. Navigate to my-react-form directory:
+
+```bash
+cd my-react-form
+```
+
+3. Install dependencies and start the app:
+
+```bash
+npm install
+npm start
+```
+
+> Make sure **React Router** is installed and configured for navigation.
+
+---
+
+
+
+## 📁 Folder Structure
+
+```bash
+my-react-form/
+├── node_modules/
+├── public/
+├── components/
+│   ├── Form.js
+│   ├── DisplayData.js
+│   └── form.css
+├── pages/
+│   └── Result.js
+├── App.js
+├── App.css
+├── index.js
+├── index.css
+├── reportWebVitals.js
+├── setupTests.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitignore
+
+```
+
+---
+
+## 🧠 Learning Outcomes
+
+* Working with **controlled components** in React
+* Implementing **client-side validation logic**
+* Using **React Router** for navigation
+* Managing **component state** efficiently
+* Creating a clean and interactive user interface without external libraries
+
+---
+
+
+
+⭐ Star this repository to support my internship journey!
