@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Service Desk App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Service Desk App</h1>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <button onclick="showSection('register')">Register</button>
+      <button onclick="showSection('login')">Login</button>
+      <button onclick="showSection('ticket')">Raise Ticket</button>
+      <button onclick="showDashboard()">Dashboard</button>
+    </div>
+
+    <!-- Logout button only visible on dashboard -->
+    <button id="logout-button" style="display:none; margin-bottom: 20px;">Logout</button>
+
+    <!-- Register Form -->
+    <div id="register-section" class="section" style="display:none;">
+      <h2>Register</h2>
+      <form id="register-form">
+        <input type="email" id="register-email" placeholder="Email" required />
+        <input type="password" id="register-password" placeholder="Password" required />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-section" class="section" style="display:none;">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Raise Ticket Form -->
+    <div id="ticket-section" class="section" style="display:none;">
+      <h2>Raise a Ticket</h2>
+      <form id="ticket-form">
+        <input type="text" id="issue-description" placeholder="Issue Description" required />
+        <select id="priority" required>
+          <option value="">Select Priority</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <select id="category" required>
+          <option value="">Select Category</option>
+          <option value="Hardware">Hardware</option>
+          <option value="Software">Software</option>
+          <option value="Network">Network</option>
+          <option value="Other">Other</option>
+        </select>
+        <button type="submit">Submit Ticket</button>
+      </form>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" class="section" style="display:none;">
+      <h2>Dashboard</h2>
+      <p>Welcome, <span id="user-email"></span></p>
+
+      <h3>Your Tickets:</h3>
+      <ul id="ticket-status-list">
+        <!-- Ticket status will be shown here -->
+      </ul>
+    </div>
+
+    <!-- Admin Panel Section -->
+    <div id="admin-dashboard-section" class="section" style="display:none;">
+      <h2>Admin Panel - All Tickets</h2>
+      <ul id="admin-ticket-list"></ul>
+    </div>
+
+  </div>
+
+  <!-- Firebase scripts -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <!-- Your JS -->
+  <script src="script.js"></script>
+
+  <!-- Section Toggle Script -->
+  <script>
+    function showSection(id) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // Hide both dashboards initially
+      document.getElementById('dashboard-section').style.display = 'none';
+      document.getElementById('admin-dashboard-section').style.display = 'none';
+
+      if (id === 'dashboard') {
+        document.getElementById('dashboard-section').style.display = 'block';
+      } else if (id === 'admin-dashboard') {
+        document.getElementById('admin-dashboard-section').style.display = 'block';
+      } else {
+        document.getElementById(id + '-section').style.display = 'block';
+      }
+
+      // Show logout only for dashboards
+      if (id === 'dashboard' || id === 'admin-dashboard') {
+        document.getElementById('logout-button').style.display = 'inline-block';
+        document.querySelector('.nav-buttons').style.display = 'none';
+      } else {
+        document.getElementById('logout-button').style.display = 'none';
+        document.querySelector('.nav-buttons').style.display = 'flex';
+      }
+    }
+
+    async function showDashboard() {
+      const user = firebase.auth().currentUser;
+      if (!user) {
+        alert('Please login first');
+        showSection('login');
+        return;
+      }
+
+      document.getElementById('user-email').textContent = user.email;
+
+      try {
+        const userDoc = await firebase.firestore().collection('users').doc(user.uid).get();
+        if (userDoc.exists && userDoc.data().isAdmin === true) {
+          await loadAdminDashboard();
+          showSection('admin-dashboard');
+        } else {
+          await loadUserDashboard(user.uid);
+          showSection('dashboard');
+        }
+      } catch (error) {
+        alert('Error checking admin status: ' + error.message);
+        showSection('login');
+      }
+    }
+
+    async function loadUserDashboard(uid) {
+      const ticketList = document.getElementById('ticket-status-list');
+      ticketList.innerHTML = 'Loading your tickets...';
+
+      try {
+        const snapshot = await firebase.firestore()
+          .collection('tickets')
+          .where('userId', '==', uid)
+          .orderBy('createdAt', 'desc')
+          .get();
+
+        if (snapshot.empty) {
+          ticketList.innerHTML = '<li>No tickets found.</li>';
+          return;
+        }
+
+        ticketList.innerHTML = '';
+        snapshot.forEach(doc => {
+          const ticket = doc.data();
+          const li = document.createElement('li');
+          li.textContent = `Issue: ${ticket.issueDescription} | Status: ${ticket.status} | Priority: ${ticket.priority}`;
+          ticketList.appendChild(li);
+        });
+      } catch (error) {
+        ticketList.innerHTML = `<li>Error loading tickets: ${error.message}</li>`;
+      }
+    }
+
+    async function loadAdminDashboard() {
+      const adminTicketList = document.getElementById('admin-ticket-list');
+      adminTicketList.innerHTML = 'Loading all tickets...';
+
+      try {
+        const snapshot = await firebase.firestore()
+          .collection('tickets')
+          .orderBy('createdAt', 'desc')
+          .get();
+
+        if (snapshot.empty) {
+          adminTicketList.innerHTML = '<li>No tickets found.</li>';
+          return;
+        }
+
+        adminTicketList.innerHTML = '';
+        snapshot.forEach(doc => {
+          const ticket = doc.data();
+          const li = document.createElement('li');
+          li.textContent = `User: ${ticket.email} | Issue: ${ticket.issueDescription} | Status: ${ticket.status} | Priority: ${ticket.priority}`;
+          adminTicketList.appendChild(li);
+        });
+      } catch (error) {
+        adminTicketList.innerHTML = `<li>Error loading tickets: ${error.message}</li>`;
+      }
+    }
+
+    document.getElementById('logout-button').addEventListener('click', () => {
+      firebase.auth().signOut()
+        .then(() => {
+          alert("Logged out successfully!");
+          showSection('login');
+        })
+        .catch(error => {
+          alert("Logout error: " + error.message);
+        });
+    });
+  </script>
+</body>
+</html>
