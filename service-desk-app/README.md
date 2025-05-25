@@ -172,7 +172,9 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Kavya Sharma 
+Kavya Sharma
+<br></br>
 Email: kavyasharmaa2205@gmail.com 
+<br></br>
 GitHub: kavya-sharma22 
 
