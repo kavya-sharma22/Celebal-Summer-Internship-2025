@@ -43,6 +43,10 @@ A full-featured Service Desk Application that enables users to register, login, 
 - Enable **Email/Password Authentication** under Authentication > Sign-in method.  
 - Create a Firestore database (preferably in test mode during development).  
 - Add user roles in Firestore by creating a `users` collection and setting `isAdmin` flags as needed.
+  <img src="SS/8.png" width="700" />
+  <br>  </br>
+  <img src="SS/11.png" width="700" />
+
 
 ### 2. Razorpay Setup (Optional/Future)
 
@@ -70,8 +74,45 @@ firebase.initializeApp(firebaseConfig);
 ### 4. Running the Application
 
 - Open the main HTML file (e.g., `index.html`) in your preferred browser.  
-- Register a new user or login with existing credentials.  
-- Use the interface to raise tickets and track their status.  
+- Register a new user or login with existing credentials.
+    ### Service-Desk App UI
+   
+  <img src="SS/1.png" width="700" />
+   <br>  </br>
+   
+    ###  🔐 Register Using New Credentials
+   <img src="SS/2.png" width="700" />
+   <br>  </br>
+
+   ### 🔑 Login,✅ Login Successful
+   <img src="SS/3.png" width="700" />
+   <br>  </br>
+
+ - Use the interface to raise tickets and track their status.
+
+    ### 📝 Now, Raise a Ticket
+   <img src="SS/4.png" width="700" />
+   <br>  </br>
+   <img src="SS/5.png" width="700" />
+   <br>  </br>
+
+   ### 🎟️ Ticket Raised Successfully
+   <img src="SS/6.png" width="700" />
+   <br>  </br>
+
+   ### 📊 Dashboard
+   <img src="SS/7.png" width="700" />
+   <br>  </br>
+   
+   ### Logout Successful.
+   <img src="SS/9.png" width="700" />
+   <br>  </br>
+
+   ### 🔄 Realtime Updates & Ticket Status
+   <img src="SS/10.png" width="700" />
+   <br>  </br>
+
+  
 - Admin users can manage all tickets through the Admin Panel.
 
 ---
@@ -131,7 +172,7 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Your Name  
-Email: your.email@example.com  
-GitHub: [yourusername](https://github.com/yourusername)
+Kavya Sharma 
+Email: kavyasharmaa2205@gmail.com 
+GitHub: kavya-sharma22 
 
