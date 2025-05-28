@@ -1,0 +1,166 @@
+/* ✅ Base App Styling */
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* ✅ Success message box */
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #e0ffe0;
+  border: 1px solid #60c060;
+  border-radius: 6px;
+  color: #206020;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ✅ Filters section */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters button {
+  padding: 8px 14px;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.filters button:hover {
+  background-color: #21a1f1;
+}
+
+/* ✅ Todo item styling */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.todo-item span {
+  flex-grow: 1;
+  font-size: 1rem;
+  word-wrap: break-word;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* ✅ Todo action buttons */
+.todo-actions button {
+  margin-left: 8px;
+  padding: 5px 8px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff6961;
+  color: white;
+  cursor: pointer;
+}
+
+.todo-actions button.complete-btn {
+  background-color: #4caf50;
+}
+
+.todo-actions button:hover {
+  opacity: 0.9;
+}
+
+/* ✅ Input Form */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+form input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 8px 14px;
+  font-size: 1rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 600px) {
+  .app {
+    padding: 10px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form input[type="text"],
+  form button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters button {
+    width: 100%;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .todo-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
+  }
+}
