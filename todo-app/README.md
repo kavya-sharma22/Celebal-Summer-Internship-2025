@@ -1,21 +1,48 @@
 
 # ✅ React To-Do List App
 
-A simple and responsive To-Do List built with **React**. Add, delete, complete, sort, and filter tasks with real-time updates stored in **localStorage**. The app is fully responsive on both mobile and desktop.
+Develop a **React To-Do List** component allowing task addition, removal, and completion marking. Validate task input, display tasks dynamically, and offer optional sorting, filtering, and localStorage integration.
 
 ---
 
-## 📸 Screenshots
+### Folder Initialization 
+<img src="SS/1.png" alt="Desktop View" width="700"/>
 
-### 🖥️ Desktop View
+### Folder Structure
+<img src="SS/2.png" alt="Desktop View" width="700"/>
 
-<img src="screenshots/desktop-view.png" alt="Desktop View" width="600"/>
+### React To-Do-List UI
 
-### 📱 Mobile View
+<img src="SS/3.png" alt="Desktop View" width="700"/>
 
-<img src="screenshots/mobile-view.png" alt="Mobile View" width="300"/>
+### Add Task
 
-> 📁 Place your screenshots in a `/screenshots` folder inside the root directory.
+<img src="SS/4.png" alt="Desktop View" width="700"/>
+
+### To-Do-List
+
+<img src="SS/5.png" alt="Desktop View" width="700"/>
+
+### Task Added Successfully
+
+<img src="SS/7.png" alt="Desktop View" width="700"/>
+
+### Task Sorted Successfully
+
+<img src="SS/8.png" alt="Desktop View" width="700"/>
+
+### Task Completed Successfully
+
+<img src="SS/9.png" alt="Desktop View" width="700"/>
+
+### Active Tasks
+
+<img src="SS/10.png" alt="Desktop View" width="700"/>
+
+### Tasks Removed Succesfully
+
+<img src="SS/11.png" alt="Desktop View" width="700"/>
+
 
 ---
 
@@ -36,10 +63,10 @@ A simple and responsive To-Do List built with **React**. Add, delete, complete, 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/react-todo-list.git
+git clone https://github.com/kavya-sharma22/react-todo-app.git
 
 # Navigate into the project directory
-cd react-todo-list
+cd react-todo-app
 
 # Install dependencies
 npm install
@@ -67,7 +94,7 @@ npm start
 ## 📁 Folder Structure
 
 ```
-react-todo-list/
+react-todo-app/
 ├── public/
 │   └── index.html
 ├── src/
@@ -77,8 +104,8 @@ react-todo-list/
 │   ├── TodoList.js
 │   └── index.js
 ├── screenshots/
-│   ├── desktop-view.png
-│   └── mobile-view.png
+│   ├── 1.png
+│   └── 2.png.......etc
 └── README.md
 ```
 
@@ -95,10 +122,8 @@ react-todo-list/
 
 ## ✍️ Author
 
-Developed by [Your Name]
+Developed by Kavya Sharma
 
 ---
 
-## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
