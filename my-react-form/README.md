@@ -93,7 +93,7 @@ To work with the React form project, navigate to the `my-react-form` directory i
 
 ### Once All Fields Are Valid:
 
-- The **Submit** button becomes **enabled**.
+- The **Submit** button becomes **enabled**.  
 - All error messages disappear.
 
 <img src="screenshot/5.png" alt="Screenshot" width="700" />
