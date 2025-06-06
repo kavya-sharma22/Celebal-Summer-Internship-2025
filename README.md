@@ -37,10 +37,15 @@ This repository includes multiple projects, each demonstrating a different real-
 ## 📌 Key Learnings
 
 ✅ Building responsive UIs with React and Tailwind
+<br></br>
 ✅ Managing state and props effectively
+<br></br>
 ✅ Form validation and controlled components
+<br></br>
 ✅ Working with external APIs and Firebase
+<br></br>
 ✅ Implementing charts, calendars, and Kanban boards
+<br></br>
 ✅ Deploying and managing GitHub repositories
 
 ---
