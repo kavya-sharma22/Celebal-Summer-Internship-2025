@@ -1,5 +1,5 @@
 # 🌟 Celebal Summer Internship 2025 — React.js Projects
-
+ 
 Welcome to my GitHub repository containing all the tasks and projects completed during my **Summer Internship 2025** at **Celebal Technologies**. This internship gave me hands-on experience in building scalable, component-based frontend applications using **React.js** and modern web development tools.
 
 ---
