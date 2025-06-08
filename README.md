@@ -11,7 +11,7 @@ Welcome to my GitHub repository containing all the tasks and projects completed 
 * **Role:** React.js Intern
 * **Primary Tech Stack:**
 
-  * React.js
+  * React.js 
   * Tailwind CSS
   * JavaScript (ES6+)
   * Firebase
